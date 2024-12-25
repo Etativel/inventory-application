@@ -1,0 +1,33 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: blue;
+  flex-grow: 1;
+}
+
+.main {
+  background-color: red;
+  flex-grow: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+li {
+  list-style: none;
+}
+
+.product-list {
+  background-color: white;
+  width: fit-content;
+}
