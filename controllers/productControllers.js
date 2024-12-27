@@ -4,7 +4,19 @@ async function getAllProduct(req, res) {
   const products = await db.getAllProductQuery();
   const categories = await db.getAllCategoryQuery();
   res.render("dashboard", {
-    content: { name: "product", data: products, category: categories },
+    content: {
+      name: "product",
+      data: products,
+      category: categories,
+      mode: "view",
+    },
+  });
+}
+
+async function getProductForm(req, res) {
+  const categories = await db.getAllCategoryQuery();
+  res.render("dashboard", {
+    content: { mode: "insert-product", category: categories },
   });
 }
 
@@ -25,4 +37,5 @@ module.exports = {
   getAllProduct,
   insertProductHandler,
   deleteProduct,
+  getProductForm,
 };

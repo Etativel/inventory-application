@@ -1,0 +1,13 @@
+<div class="input-header">
+  <% if (content.name === 'product') { %>
+  <button><a href="/dashboard/product/add-product">Add Product</a></button>
+  <% } else { %>
+  <button><a href="/dashboard/category/add-category">Add Category</a></button>
+  <% } %>
+</div>
+
+<table class="main-table">
+  <% if (content.name === 'product') { %> <%- include('../partials/showProduct',
+  { data: content.data }) %> <% } else { %> <%-
+  include('../partials/showCategory', { data: content.data }) %> <% } %>
+</table>

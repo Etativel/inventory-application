@@ -15,18 +15,11 @@
         </ul>
       </div>
       <div class="main">
-        <div class="input-header">
-          <% if (content.name === 'product') { %> <%-
-          include('./form/productForm', { data: content.category }) %> <% } else
-          { %> <%- include('./form/categoryForm', { data: content.data }) %> <%
-          } %>
-        </div>
-        <table class="main-table">
-          <% if (content.name === 'product') { %> <%-
-          include('./partials/showProduct', { data: content.data }) %> <% } else
-          { %> <%- include('./partials/showCategory', { data: content.data }) %>
-          <% } %>
-        </table>
+        <% if (content.mode === 'view') { %> <%- include('./main/onView', {
+        content: content }) %> <% } else if (content.mode === 'insert-product')
+        { %> <%- include('./form/productForm', { data: content.category }) %> <%
+        } else if (content.mode === 'insert-category') { %> <%-
+        include('./form/categoryForm', { content: content }) %> <% } %>
       </div>
     </div>
   </body>

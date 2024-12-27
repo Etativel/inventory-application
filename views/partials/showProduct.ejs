@@ -15,7 +15,9 @@
   <td><%- item.quantity %></td>
   <td><%- item.category %></td>
   <td>
-    <button><a href="/delete/<%- item.id %>">Delete</a></button>
+    <form action="/delete/<%- item.id %>" method="POST">
+      <button type="submit">Delete</button>
+    </form>
   </td>
 </tr>
 <% }) %>

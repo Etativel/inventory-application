@@ -5,6 +5,7 @@ router.use(express.urlencoded({ extended: true }));
 const controller = require("../controllers/productControllers");
 
 router.get("/dashboard/product", controller.getAllProduct);
-router.post("/dashboard/product", controller.insertProductHandler);
-router.get("/delete/:id", controller.deleteProduct);
+router.get("/dashboard/product/add-product", controller.getProductForm);
+router.post("/dashboard/product/add-product", controller.insertProductHandler);
+router.post("/delete/:id", controller.deleteProduct);
 module.exports = router;
