@@ -13,8 +13,8 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
   res.send("Home");
 });
-app.use("/dashboard/category", categoryRouter);
-app.use("/dashboard/product", productRouter);
+app.use("/", categoryRouter);
+app.use("/", productRouter);
 
 app.use((req, res) => {
   res.send("Not found");

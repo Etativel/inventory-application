@@ -9,22 +9,20 @@ async function getAllProduct(req, res) {
 }
 
 async function insertProductHandler(req, res) {
-  const insertValue = {
-    name: req.body.name,
-    description: req.body.description,
-    price: req.body.price,
-    quantity: req.body.quantity,
-    category: req.body.category,
-  };
-
-  console.log(insertValue);
-
-  await db.insertProduct(insertValue);
+  const { name, description, price, quantity, category } = req.body;
+  await db.insertProduct({ name, description, price, quantity, category });
   console.log("inserted");
+  res.redirect("/dashboard/product");
+}
+
+async function deleteProduct(req, res) {
+  const productId = req.params.id;
+  await db.deleteProduct(productId);
   res.redirect("/dashboard/product");
 }
 
 module.exports = {
   getAllProduct,
   insertProductHandler,
+  deleteProduct,
 };

@@ -50,9 +50,22 @@ async function insertCategory(params) {
   );
 }
 
+// DELETE
+
+async function deleteProduct(params) {
+  await pool.query(
+    `
+            DELETE FROM inventory_table WHERE id = ($1)
+        
+        `,
+    [params]
+  );
+}
+
 module.exports = {
   getAllProductQuery,
   getAllCategoryQuery,
   insertProduct,
   insertCategory,
+  deleteProduct,
 };

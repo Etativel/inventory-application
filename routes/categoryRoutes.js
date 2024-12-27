@@ -4,7 +4,7 @@ router.use(express.urlencoded({ extended: true }));
 
 const controller = require("../controllers/categoryControllers");
 
-router.get("/", controller.getAllCategory);
-router.post("/", controller.insertCategoryHandler);
+router.get("/dashboard/category", controller.getAllCategory);
+router.post("/dashboard/category", controller.insertCategoryHandler);
 
 module.exports = router;
