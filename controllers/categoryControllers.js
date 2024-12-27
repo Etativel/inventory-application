@@ -6,6 +6,19 @@ async function getAllCategory(req, res) {
   res.render("dashboard", { content: { name: "category", data: categories } });
 }
 
+async function insertCategoryHandler(req, res) {
+  const insertValue = {
+    category: req.body.category,
+  };
+
+  console.log(insertValue);
+
+  await db.insertCategory(insertValue);
+  console.log("inserted");
+  res.redirect("/dashboard/category");
+}
+
 module.exports = {
   getAllCategory,
+  insertCategoryHandler,
 };

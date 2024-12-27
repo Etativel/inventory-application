@@ -35,4 +35,5 @@ li {
 /* Main Table */
 .main-table {
   background-color: white;
+  width: fit-content;
 }

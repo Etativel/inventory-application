@@ -36,8 +36,23 @@ async function insertProduct(params) {
   );
 }
 
+async function insertCategory(params) {
+  await pool.query(
+    `
+      INSERT INTO category_table (
+      category
+      )
+      VALUES (
+          $1
+      );
+      `,
+    [params.category]
+  );
+}
+
 module.exports = {
   getAllProductQuery,
   getAllCategoryQuery,
   insertProduct,
+  insertCategory,
 };
