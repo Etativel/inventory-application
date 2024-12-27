@@ -11,16 +11,16 @@
 
 .sidebar {
   background-color: blue;
-  flex-grow: 1;
+  width: 400px;
 }
 
 .main {
   background-color: red;
-  flex-grow: 4;
+  flex-grow: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   overflow-y: auto;
+  justify-content: center;
+  flex-direction: column;
 }
 
 li {
@@ -30,4 +30,9 @@ li {
 .product-list {
   background-color: white;
   width: fit-content;
+}
+
+/* Main Table */
+.main-table {
+  background-color: white;
 }

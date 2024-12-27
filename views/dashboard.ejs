@@ -15,11 +15,18 @@
         </ul>
       </div>
       <div class="main">
-        <% if (content.name === 'product') { %> <% content.data.forEach(function
-        (data) { %> <%- include('./partials/showProduct', { prod: data }) %> <%
-        }) %> <% } else { %> <% content.data.forEach(function (cate) { %> <%-
-        include('./partials/showCategory', { category: cate }) %> <% }) %> <% }
-        %>
+        <div class="input-header">
+          <% if (content.name === 'product') { %> <%-
+          include('./form/productForm', { data: content.category }) %> <% } else
+          { %> <%- include('./form/categoryForm', { data: content.data }) %> <%
+          } %>
+        </div>
+        <table class="main-table">
+          <% if (content.name === 'product') { %> <%-
+          include('./partials/showProduct', { data: content.data }) %> <% } else
+          { %> <%- include('./partials/showCategory', { data: content.data }) %>
+          <% } %>
+        </table>
       </div>
     </div>
   </body>

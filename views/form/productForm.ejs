@@ -1,0 +1,12 @@
+<form action="/dashboard/product" method="POST">
+  <input required type="text" placeholder="Name" name="name" />
+  <textarea name="description" id="description"></textarea>
+  <input required type="number" name="price" placeholder="Price" />
+  <input required type="number" name="quantity" placeholder="Quantity" />
+  <select name="category" id="category">
+    <% data.forEach(function (category) { %>
+    <option value="<%- category.category %>"><%- category.category %></option>
+    <% }) %>
+  </select>
+  <button type="submit">Add</button>
+</form>

@@ -1,3 +1,10 @@
-<ul class="category-list">
-  <li><%-category.category%></li>
-</ul>
+<tr>
+  <th>ID</th>
+  <th>Category</th>
+</tr>
+<% data.forEach(function (item) { %>
+<tr>
+  <td><%- item.id %></td>
+  <td><%- item.category %></td>
+</tr>
+<% }) %>
