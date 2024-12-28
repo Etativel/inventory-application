@@ -1,0 +1,36 @@
+<form action="/update/<%- item.id %>" method="POST">
+  <input type="hidden" name="id" value="<%- item.id %>" />
+  <input
+    required
+    type="text"
+    placeholder="Name"
+    name="name"
+    value="<%- item.name %>"
+  />
+
+  <textarea name="description" id="description" placeholder="Description">
+  <%- item.description %></textarea
+  >
+  <input
+    required
+    type="number"
+    name="price"
+    placeholder="Price"
+    value="<%- item.price %>"
+  />
+
+  <input
+    required
+    type="number"
+    name="quantity"
+    placeholder="Quantity"
+    value="<%- item.quantity %>"
+  />
+
+  <select name="category" id="category">
+    <% data.forEach(function (category) { %>
+    <option value="<%- category.category %>"><%- category.category %></option>
+    <% }) %>
+  </select>
+  <button type="submit">Update</button>
+</form>

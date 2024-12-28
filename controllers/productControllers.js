@@ -16,8 +16,23 @@ async function getAllProduct(req, res) {
 async function getProductForm(req, res) {
   const categories = await db.getAllCategoryQuery();
   res.render("dashboard", {
-    content: { mode: "insert-product", category: categories },
+    content: { mode: "insert-product", category: categories, item: null },
   });
+}
+
+async function getUpdateData(req, res) {
+  const productId = req.params.id;
+  const categories = await db.getAllCategoryQuery();
+  const item = await db.getProduct(productId);
+  res.render("dashboard", {
+    content: { mode: "update-product", item: item[0], category: categories },
+  });
+}
+
+async function updateProduct(req, res) {
+  const { id, name, description, price, quantity, category } = req.body;
+  await db.updateProduct({ id, name, description, price, quantity, category });
+  res.redirect("/dashboard/product");
 }
 
 async function insertProductHandler(req, res) {
@@ -38,4 +53,6 @@ module.exports = {
   insertProductHandler,
   deleteProduct,
   getProductForm,
+  getUpdateData,
+  updateProduct,
 };

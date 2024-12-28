@@ -19,7 +19,10 @@
         content: content }) %> <% } else if (content.mode === 'insert-product')
         { %> <%- include('./form/productForm', { data: content.category }) %> <%
         } else if (content.mode === 'insert-category') { %> <%-
-        include('./form/categoryForm', { content: content }) %> <% } %>
+        include('./form/categoryForm', { content: content }) %> <% } else if
+        (content.mode === 'update-product') { %> <%-
+        include('./form/productUpdateForm', { item: content.item,
+        data:content.category }) %> <% } %>
       </div>
     </div>
   </body>
