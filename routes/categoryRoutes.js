@@ -11,5 +11,6 @@ router.post(
   controller.insertCategoryHandler
 );
 router.post("/delete-category/:id", controller.deleteCategory);
-
+router.get("/update-category/:id", controller.getUpdateData);
+router.post("/update-category/:id", controller.updateCategory);
 module.exports = router;

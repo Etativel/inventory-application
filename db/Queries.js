@@ -20,6 +20,16 @@ async function getProduct(id) {
   return rows;
 }
 
+async function getCategory(id) {
+  const { rows } = await pool.query(
+    `
+    SELECT * FROM category_table WHERE id = ($1)
+    `,
+    [id]
+  );
+  return rows;
+}
+
 async function checkCategoryInInventory(params) {
   const { rows } = await pool.query(
     `
@@ -112,6 +122,16 @@ async function updateProduct(params) {
   );
 }
 
+async function updateCategory(params) {
+  await pool.query(
+    `
+      UPDATE category_table
+      SET category = ($1) WHERE id = ($2)
+    `,
+    [params.category, params.id]
+  );
+}
+
 module.exports = {
   getAllProductQuery,
   getAllCategoryQuery,
@@ -122,4 +142,6 @@ module.exports = {
   updateProduct,
   checkCategoryInInventory,
   deleteCategory,
+  getCategory,
+  updateCategory,
 };

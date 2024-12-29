@@ -23,8 +23,8 @@
         (content.mode === 'update-product') { %> <%-
         include('./form/productUpdateForm', { item: content.item, data:
         content.category }) %> <% } else if (content.mode === 'update-category')
-        { %> <%- include('./form/categoryUpdateForm', { category: content.item,
-        data: content.category }) %> <% } %>
+        { %> <%- include('./form/categoryUpdateForm', { category: content.item
+        }) %> <% } %>
       </div>
     </div>
   </body>

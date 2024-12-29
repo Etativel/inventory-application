@@ -18,6 +18,20 @@ async function insertCategoryHandler(req, res) {
   res.redirect("/dashboard/category");
 }
 
+async function getUpdateData(req, res) {
+  const categoryId = req.params.id;
+  const item = await db.getCategory(categoryId);
+  res.render("dashboard", {
+    content: { mode: "update-category", item: item[0] },
+  });
+}
+
+async function updateCategory(req, res) {
+  const { id, category } = req.body;
+  await db.updateCategory({ id, category });
+  res.redirect("/dashboard/category");
+}
+
 // DELETE
 
 async function deleteCategory(req, res) {
@@ -36,4 +50,6 @@ module.exports = {
   insertCategoryHandler,
   getCategoryForm,
   deleteCategory,
+  getUpdateData,
+  updateCategory,
 };
