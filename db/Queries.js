@@ -7,18 +7,16 @@ async function getAllCategoryQuery() {
 
 async function getAllProductQuery() {
   const { rows } = await pool.query(
-    "SELECT * FROM inventory_table ORDER BY id"
+    "select inventory_table.id, name, description, price, quantity, category_table.category from inventory_table left join category_table on inventory_table.category_id = category_table.id ORDER BY inventory_table.id"
   );
   return rows;
 }
 
 async function getProduct(id) {
-  console.log("product id", id);
   const { rows } = await pool.query(
     `SELECT * FROM inventory_table WHERE id = ($1)`,
     [id]
   );
-  console.log(rows);
   return rows;
 }
 
@@ -32,7 +30,7 @@ async function insertProduct(params) {
     description,
     price,
     quantity,
-    category
+    category_id
     )
     VALUES (
         $1, $2, $3, $4, $5
@@ -43,7 +41,7 @@ async function insertProduct(params) {
       params.description,
       params.price,
       params.quantity,
-      params.category,
+      params.category_id,
     ]
   );
 }
@@ -77,12 +75,11 @@ async function deleteProduct(params) {
 // UPDATE
 
 async function updateProduct(params) {
-  console.log("update params", params);
   await pool.query(
     `
     UPDATE inventory_table
     SET name = ($1), description = ($2),
-    price = ($3), quantity = ($4), category = ($5) 
+    price = ($3), quantity = ($4), category_id = ($5) 
     WHERE id = ($6);
     `,
     [
@@ -90,7 +87,7 @@ async function updateProduct(params) {
       params.description,
       params.price,
       params.quantity,
-      params.category,
+      params.category_id,
       params.id,
     ]
   );
