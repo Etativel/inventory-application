@@ -1,5 +1,63 @@
 const pool = require("./pool");
 
+async function findProduct(params) {
+  let query = `
+    SELECT 
+      inventory_table.id, 
+      inventory_table.name as name, 
+      inventory_table.description as description, 
+      inventory_table.price as price, 
+      inventory_table.quantity as quantity, 
+      category_table.category as category 
+    FROM 
+      inventory_table 
+    LEFT JOIN 
+      category_table 
+    ON 
+      inventory_table.category_id = category_table.id
+    WHERE 1=1`;
+  const values = [];
+  let index = 1;
+  let conditionJoin = params.filter === "exact-match" ? " AND " : " OR ";
+
+  let conditions = [];
+
+  if (params.name && params.name.trim() !== "") {
+    conditions.push(`name ILIKE $${index}`);
+    values.push(`%${params.name}%`);
+    index++;
+  }
+  if (params.description && params.description.trim() !== "") {
+    conditions.push(`description ILIKE $${index}`);
+    values.push(`%${params.description}%`);
+    index++;
+  }
+  if (params.price && params.price.trim() !== "") {
+    conditions.push(`price = $${index}`);
+    values.push(params.price);
+    index++;
+  }
+  if (params.quantity && params.quantity.trim() !== "") {
+    conditions.push(`quantity = $${index}`);
+    values.push(params.quantity);
+    index++;
+  }
+  if (params.category_id && params.category_id.trim() !== "") {
+    conditions.push(`category_id = $${index}`);
+    values.push(params.category_id);
+    index++;
+  }
+
+  if (conditions.length > 0) {
+    query += ` AND (${conditions.join(conditionJoin)})`;
+  }
+
+  console.log(query);
+  console.log(values);
+  const { rows } = await pool.query(query, values);
+  return rows;
+}
+
 async function getAllCategoryQuery() {
   const { rows } = await pool.query("SELECT * FROM category_table ORDER BY id");
   return rows;
@@ -144,4 +202,5 @@ module.exports = {
   deleteCategory,
   getCategory,
   updateCategory,
+  findProduct,
 };

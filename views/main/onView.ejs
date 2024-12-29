@@ -1,7 +1,36 @@
 <div class="input-header">
   <% if (content.name === 'product') { %>
+  <form action="/dashboard/product-search" method="post">
+    <input type="text" placeholder="Name" name="name" />
+
+    <textarea
+      name="description"
+      id="description"
+      placeholder="Description"
+    ></textarea>
+
+    <input type="number" name="price" placeholder="Price" />
+
+    <input type="number" name="quantity" placeholder="Quantity" />
+
+    <select name="category_id" id="category">
+      <option value="" selected disabled>Select a category</option>
+      <% content.category.forEach(function (category) { %>
+      <option value="<%- category.id %>"><%- category.category %></option>
+      <% }) %>
+    </select>
+    <select name="filter" id="filter">
+      <option value="exact-match">Exact match</option>
+      <option value="any-match">Any match</option>
+    </select>
+    <button type="submit">Search</button>
+  </form>
   <button><a href="/dashboard/product/add-product">Add Product</a></button>
   <% } else { %>
+  <form action="/dashboard/category-search" method="post">
+    <input type="text" name="query" id="query" />
+    <button type="submit">Search</button>
+  </form>
   <button><a href="/dashboard/category/add-category">Add Category</a></button>
   <% } %>
 </div>

@@ -10,4 +10,5 @@ router.post("/dashboard/product/add-product", controller.insertProductHandler);
 router.post("/delete-product/:id", controller.deleteProduct);
 router.get("/update-product/:id", controller.getUpdateData);
 router.post("/update-product/:id", controller.updateProduct);
+router.post("/dashboard/product-search", controller.getProductSearch);
 module.exports = router;

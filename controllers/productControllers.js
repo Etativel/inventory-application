@@ -56,6 +56,28 @@ async function deleteProduct(req, res) {
   res.redirect("/dashboard/product");
 }
 
+async function getProductSearch(req, res) {
+  const { name, description, price, quantity, category_id, filter } = req.body;
+  const query = {
+    name: name,
+    description: description,
+    price: price,
+    quantity: quantity,
+    category_id: category_id,
+    filter: filter,
+  };
+  const products = await db.findProduct(query);
+  const categories = await db.getAllCategoryQuery();
+  res.render("dashboard", {
+    content: {
+      name: "product",
+      data: products,
+      category: categories,
+      mode: "view",
+    },
+  });
+}
+
 module.exports = {
   getAllProduct,
   insertProductHandler,
@@ -63,4 +85,5 @@ module.exports = {
   getProductForm,
   getUpdateData,
   updateProduct,
+  getProductSearch,
 };
