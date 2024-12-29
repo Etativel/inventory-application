@@ -20,6 +20,16 @@ async function getProduct(id) {
   return rows;
 }
 
+async function checkCategoryInInventory(params) {
+  const { rows } = await pool.query(
+    `
+    SELECT name FROM inventory_table WHERE category_id = ($1)
+    `,
+    [params]
+  );
+  return rows;
+}
+
 // INSERT
 
 async function insertProduct(params) {
@@ -72,6 +82,15 @@ async function deleteProduct(params) {
   );
 }
 
+async function deleteCategory(params) {
+  await pool.query(
+    `
+    DELETE FROM category_table WHERE id = ($1)
+    `,
+    [params]
+  );
+}
+
 // UPDATE
 
 async function updateProduct(params) {
@@ -101,4 +120,6 @@ module.exports = {
   deleteProduct,
   getProduct,
   updateProduct,
+  checkCategoryInInventory,
+  deleteCategory,
 };

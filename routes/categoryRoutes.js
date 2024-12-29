@@ -10,5 +10,6 @@ router.post(
   "/dashboard/category/add-category",
   controller.insertCategoryHandler
 );
+router.post("/delete-category/:id", controller.deleteCategory);
 
 module.exports = router;
