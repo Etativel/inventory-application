@@ -10,12 +10,12 @@
 }
 
 .sidebar {
-  background-color: blue;
+  background-color: gray;
   width: 400px;
 }
 
 .main {
-  background-color: red;
+  /* background-color: red; */
   flex-grow: 1;
   display: flex;
   overflow-y: auto;

@@ -21,8 +21,10 @@
         } else if (content.mode === 'insert-category') { %> <%-
         include('./form/categoryForm', { content: content }) %> <% } else if
         (content.mode === 'update-product') { %> <%-
-        include('./form/productUpdateForm', { item: content.item,
-        data:content.category }) %> <% } %>
+        include('./form/productUpdateForm', { item: content.item, data:
+        content.category }) %> <% } else if (content.mode === 'update-category')
+        { %> <%- include('./form/categoryUpdateForm', { category: content.item,
+        data: content.category }) %> <% } %>
       </div>
     </div>
   </body>

@@ -6,5 +6,15 @@
 <tr>
   <td><%- item.id %></td>
   <td><%- item.category %></td>
+  <td>
+    <form action="/update-category/<%- item.id %>" method="GET">
+      <button type="submit">Update</button>
+    </form>
+  </td>
+  <td>
+    <form action="/delete-category/<%- item.id %>" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+  </td>
 </tr>
 <% }) %>

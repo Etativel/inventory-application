@@ -15,12 +15,12 @@
   <td><%- item.quantity %></td>
   <td><%- item.category %></td>
   <td>
-    <form action="/update/<%- item.id %>" method="GET">
+    <form action="/update-product/<%- item.id %>" method="GET">
       <button type="submit">Update</button>
     </form>
   </td>
   <td>
-    <form action="/delete/<%- item.id %>" method="POST">
+    <form action="/delete-product/<%- item.id %>" method="POST">
       <button type="submit">Delete</button>
     </form>
   </td>

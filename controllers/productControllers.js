@@ -30,15 +30,23 @@ async function getUpdateData(req, res) {
 }
 
 async function updateProduct(req, res) {
-  const { id, name, description, price, quantity, category } = req.body;
-  await db.updateProduct({ id, name, description, price, quantity, category });
+  const { id, name, description, price, quantity, category_id } = req.body;
+  console.log("param update", category_id);
+  await db.updateProduct({
+    id,
+    name,
+    description,
+    price,
+    quantity,
+    category_id,
+  });
   res.redirect("/dashboard/product");
 }
 
 async function insertProductHandler(req, res) {
-  const { name, description, price, quantity, category } = req.body;
-  await db.insertProduct({ name, description, price, quantity, category });
-  console.log("inserted");
+  const { name, description, price, quantity, category_id } = req.body;
+  console.log("category Id", category_id);
+  await db.insertProduct({ name, description, price, quantity, category_id });
   res.redirect("/dashboard/product");
 }
 

@@ -1,4 +1,4 @@
-<form action="/update/<%- item.id %>" method="POST">
+<form action="/update-product/<%- item.id %>" method="POST">
   <input type="hidden" name="id" value="<%- item.id %>" />
   <input
     required
@@ -27,9 +27,9 @@
     value="<%- item.quantity %>"
   />
 
-  <select name="category" id="category">
+  <select name="category_id" id="category">
     <% data.forEach(function (category) { %>
-    <option value="<%- category.category %>"><%- category.category %></option>
+    <option value="<%- category.id %>"><%- category.category %></option>
     <% }) %>
   </select>
   <button type="submit">Update</button>

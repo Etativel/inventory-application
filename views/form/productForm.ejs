@@ -11,9 +11,9 @@
 
   <input required type="number" name="quantity" placeholder="Quantity" />
 
-  <select name="category" id="category">
+  <select name="category_id" id="category">
     <% data.forEach(function (category) { %>
-    <option value="<%- category.category %>"><%- category.category %></option>
+    <option value="<%- category.id %>"><%- category.category %></option>
     <% }) %>
   </select>
 
