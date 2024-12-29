@@ -10,13 +10,14 @@ const SQL = `
   INSERT INTO category_table (
   category)
   VALUES ('Electronics'),
-  ('Furniture'),
-  ('Tools & Machinery'),
-  ('Clothing & Apparel'),
-  ('Tools & Machinery'),
-  ('Groceries'),
-  ('Automotive'),
-  ('Sports & Outdoor');
+('Furniture'),
+('Tools & Machinery'),
+('Clothing & Apparel'),
+('Groceries'),
+('Fresh Produce'),
+('Office Supplies'),
+('Automotive'),
+('Sports & Outdoor');
   `;
 
 async function main() {

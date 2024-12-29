@@ -29,7 +29,12 @@
 
   <select name="category_id" id="category">
     <% data.forEach(function (category) { %>
-    <option value="<%- category.id %>"><%- category.category %></option>
+      <option value="<%- category.id %>" 
+        <% if (category.id === item.category_id) { %> 
+          selected 
+        <% } %>>
+        <%- category.category %>
+      </option>
     <% }) %>
   </select>
   <button type="submit">Update</button>

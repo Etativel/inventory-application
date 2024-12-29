@@ -52,8 +52,6 @@ async function findProduct(params) {
     query += ` AND (${conditions.join(conditionJoin)})`;
   }
 
-  console.log(query);
-  console.log(values);
   const { rows } = await pool.query(query, values);
   return rows;
 }
