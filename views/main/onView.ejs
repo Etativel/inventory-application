@@ -27,8 +27,8 @@
       <% }) %>
     </select>
     <select name="filter" id="filter">
-      <option value="exact-match">Exact match</option>
-      <option value="any-match">Any match</option>
+      <option value="exact-match" <% if (content.query.filter === 'exact-match') { %> selected <% } %>>Exact match</option>
+      <option value="any-match" <% if (content.query.filter === 'any-match') { %> selected <% } %>>Any match</option>
     </select>
     <button type="submit">Search</button>
   </form>
@@ -37,8 +37,8 @@
   <form action="/dashboard/category-search" method="post">
     <input required type="text" name="category" id="category" value="<%-content.query.category %>"/>
     <select name="filter" id="filter">
-      <option value="exact-match">Exact match</option>
-      <option value="any-match">Any match</option>
+      <option value="exact-match" <% if (content.query.filter === 'exact-match') { %> selected <% } %>>Exact match</option>
+      <option value="any-match" <% if (content.query.filter === 'any-match') { %> selected <% } %>>Any match</option>
     </select>
     <button type="submit">Search</button>
   </form>

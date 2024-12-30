@@ -16,6 +16,7 @@ async function getAllProduct(req, res) {
         price: null,
         quantity: null,
         category_id: null,
+        filter: null,
       },
     },
   });
