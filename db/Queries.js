@@ -16,6 +16,7 @@ async function findProduct(params) {
     ON 
       inventory_table.category_id = category_table.id
     WHERE 1=1`;
+
   const values = [];
   let index = 1;
   let conditionJoin = params.filter === "exact-match" ? " AND " : " OR ";
@@ -23,25 +24,39 @@ async function findProduct(params) {
   let conditions = [];
 
   if (params.name && params.name.trim() !== "") {
-    conditions.push(`name ILIKE $${index}`);
-    values.push(`%${params.name}%`);
+    if (params.filter === "exact-match") {
+      conditions.push(`name = $${index}`);
+      values.push(params.name.trim());
+    } else {
+      conditions.push(`name ILIKE $${index}`);
+      values.push(`%${params.name.trim()}%`);
+    }
     index++;
   }
+
   if (params.description && params.description.trim() !== "") {
-    conditions.push(`description ILIKE $${index}`);
-    values.push(`%${params.description}%`);
+    if (params.filter === "exact-match") {
+      conditions.push(`description = $${index}`);
+      values.push(params.description.trim());
+    } else {
+      conditions.push(`description ILIKE $${index}`);
+      values.push(`%${params.description.trim()}%`);
+    }
     index++;
   }
+
   if (params.price && params.price.trim() !== "") {
     conditions.push(`price = $${index}`);
     values.push(params.price);
     index++;
   }
+
   if (params.quantity && params.quantity.trim() !== "") {
     conditions.push(`quantity = $${index}`);
     values.push(params.quantity);
     index++;
   }
+
   if (params.category_id && params.category_id.trim() !== "") {
     conditions.push(`category_id = $${index}`);
     values.push(params.category_id);
@@ -51,7 +66,9 @@ async function findProduct(params) {
   if (conditions.length > 0) {
     query += ` AND (${conditions.join(conditionJoin)})`;
   }
+
   query += " ORDER BY inventory_table.id";
+
   const { rows } = await pool.query(query, values);
   return rows;
 }
@@ -66,14 +83,20 @@ async function findCategory(params) {
   let conditions = [];
 
   if (params.category && params.category.trim() !== "") {
-    conditions.push(`category ILIKE $${index}`);
-    values.push(`%${params.category}%`);
+    if (params.filter === "exact-match") {
+      conditions.push(`category = $${index}`);
+      values.push(params.category.trim());
+    } else {
+      conditions.push(`category ILIKE $${index}`);
+      values.push(`%${params.category.trim()}%`);
+    }
     index++;
   }
 
   if (conditions.length > 0) {
     query += ` AND (${conditions.join(conditionJoin)})`;
   }
+
   query += " ORDER BY category_table.id";
   const { rows } = await pool.query(query, values);
   return rows;
