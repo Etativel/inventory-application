@@ -32,6 +32,7 @@ async function getUpdateData(req, res) {
   const productId = req.params.id;
   const categories = await db.getAllCategoryQuery();
   const item = await db.getProduct(productId);
+  console.log(item[0]);
   res.render("dashboard", {
     content: { mode: "update-product", item: item[0], category: categories },
   });

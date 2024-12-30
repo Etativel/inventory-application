@@ -51,7 +51,7 @@ async function findProduct(params) {
   if (conditions.length > 0) {
     query += ` AND (${conditions.join(conditionJoin)})`;
   }
-
+  query += " ORDER BY inventory_table.id";
   const { rows } = await pool.query(query, values);
   return rows;
 }
