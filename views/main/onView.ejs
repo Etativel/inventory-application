@@ -35,7 +35,11 @@
   <button><a href="/dashboard/product/add-product">Add Product</a></button>
   <% } else { %>
   <form action="/dashboard/category-search" method="post">
-    <input type="text" name="query" id="query" />
+    <input required type="text" name="category" id="category" value="<%-content.query.category %>"/>
+    <select name="filter" id="filter">
+      <option value="exact-match">Exact match</option>
+      <option value="any-match">Any match</option>
+    </select>
     <button type="submit">Search</button>
   </form>
   <button><a href="/dashboard/category/add-category">Add Category</a></button>

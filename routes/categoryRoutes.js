@@ -13,4 +13,6 @@ router.post(
 router.post("/delete-category/:id", controller.deleteCategory);
 router.get("/update-category/:id", controller.getUpdateData);
 router.post("/update-category/:id", controller.updateCategory);
+
+router.post("/dashboard/category-search", controller.getCategorySearch);
 module.exports = router;

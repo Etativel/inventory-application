@@ -56,6 +56,29 @@ async function findProduct(params) {
   return rows;
 }
 
+async function findCategory(params) {
+  let query = `
+    SELECT * FROM category_table WHERE 1=1`;
+  const values = [];
+  let index = 1;
+  let conditionJoin = params.filter === "exact-match" ? " AND " : " OR ";
+
+  let conditions = [];
+
+  if (params.category && params.category.trim() !== "") {
+    conditions.push(`category ILIKE $${index}`);
+    values.push(`%${params.category}%`);
+    index++;
+  }
+
+  if (conditions.length > 0) {
+    query += ` AND (${conditions.join(conditionJoin)})`;
+  }
+  query += " ORDER BY category_table.id";
+  const { rows } = await pool.query(query, values);
+  return rows;
+}
+
 async function getAllCategoryQuery() {
   const { rows } = await pool.query("SELECT * FROM category_table ORDER BY id");
   return rows;
@@ -201,4 +224,5 @@ module.exports = {
   getCategory,
   updateCategory,
   findProduct,
+  findCategory,
 };

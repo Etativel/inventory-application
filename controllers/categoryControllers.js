@@ -3,7 +3,15 @@ const db = require("../db/Queries");
 async function getAllCategory(req, res) {
   const categories = await db.getAllCategoryQuery();
   res.render("dashboard", {
-    content: { name: "category", data: categories, mode: "view" },
+    content: {
+      name: "category",
+      data: categories,
+      mode: "view",
+      query: {
+        category: null,
+        filter: null,
+      },
+    },
   });
 }
 async function getCategoryForm(req, res) {
@@ -47,6 +55,26 @@ async function deleteCategory(req, res) {
   }
 }
 
+// SEARCH
+async function getCategorySearch(req, res) {
+  const { category, filter } = req.body;
+  const query = {
+    category: category,
+    filter: filter,
+  };
+  console.log(query);
+  const categories = await db.findCategory(query);
+
+  res.render("dashboard", {
+    content: {
+      name: "category",
+      mode: "view",
+      data: categories,
+      query: { ...query },
+    },
+  });
+}
+
 module.exports = {
   getAllCategory,
   insertCategoryHandler,
@@ -54,4 +82,5 @@ module.exports = {
   deleteCategory,
   getUpdateData,
   updateCategory,
+  getCategorySearch,
 };
