@@ -1,3 +1,4 @@
+const { query } = require("../db/pool");
 const db = require("../db/Queries");
 
 async function getAllProduct(req, res) {
@@ -9,6 +10,13 @@ async function getAllProduct(req, res) {
       data: products,
       category: categories,
       mode: "view",
+      query: {
+        name: null,
+        description: null,
+        price: null,
+        quantity: null,
+        category_id: null,
+      },
     },
   });
 }
@@ -68,12 +76,18 @@ async function getProductSearch(req, res) {
   };
   const products = await db.findProduct(query);
   const categories = await db.getAllCategoryQuery();
+  const queryCategory = await db.getCategory(category_id);
+  console.log(query.category_id);
   res.render("dashboard", {
     content: {
       name: "product",
       data: products,
       category: categories,
       mode: "view",
+      query: {
+        ...query,
+        category: queryCategory,
+      },
     },
   });
 }

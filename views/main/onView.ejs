@@ -1,22 +1,31 @@
 <div class="input-header">
   <% if (content.name === 'product') { %>
   <form action="/dashboard/product-search" method="post">
-    <input type="text" placeholder="Name" name="name" />
+    <input
+      type="text"
+      placeholder="Name"
+      name="name"
+      value="<%- content.query.name %>"
+    />
 
-    <textarea
-      name="description"
-      id="description"
-      placeholder="Description"
-    ></textarea>
+    <textarea name="description" id="description" placeholder="Description">
+  <%- content.query.description %>
+  </textarea
+    >
 
-    <input type="number" name="price" placeholder="Price" />
+    <input type="number" name="price" placeholder="Price" value = "<%- content.query.price %>"/>
 
-    <input type="number" name="quantity" placeholder="Quantity" />
+    <input type="number" name="quantity" placeholder="Quantity" value = "<%- content.query.quantity %>"/>
 
     <select name="category_id" id="category">
       <option value="" selected disabled>Select a category</option>
       <% content.category.forEach(function (category) { %>
-      <option value="<%- category.id %>"><%- category.category %></option>
+        <option value="<%- category.id %>" 
+          <% if (String(category.id) === String(content.query.category_id)) { %> 
+            selected 
+          <% } %>>
+          <%- category.category %>
+        </option>
       <% }) %>
     </select>
     <select name="filter" id="filter">
