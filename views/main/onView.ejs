@@ -1,50 +1,43 @@
 <div class="input-header">
   <% if (content.name === 'product') { %>
-  <form action="/dashboard/product-search" method="post" class="table-search-bar">
-    <input
-      type="text"
-      placeholder="Name"
-      name="name"
-      value="<%- content.query.name %>"
-    />
-
-    <textarea name="description" id="description" placeholder="Description"><%- content.query.description %></textarea
-    >
-
-    <input type="number" name="price" placeholder="Price" value = "<%- content.query.price %>"/>
-
-    <input type="number" name="quantity" placeholder="Quantity" value = "<%- content.query.quantity %>"/>
-
-    <select name="category_id" id="category">
-      <option value="" selected disabled>Select a category</option>
-      <% content.category.forEach(function (category) { %>
-        <option value="<%- category.id %>" 
-          <% if (String(category.id) === String(content.query.category_id)) { %> 
-            selected 
-          <% } %>>
-          <%- category.category %>
-        </option>
-      <% }) %>
-    </select>
-    <select name="filter" id="filter">
-      <option value="exact-match" <% if (content.query.filter === 'exact-match') { %> selected <% } %>>Exact match</option>
-      <option value="any-match" <% if (content.query.filter === 'any-match') { %> selected <% } %>>Any match</option>
-    </select>
-    <button type="submit">Search</button>
-  </form>
-  <button class="add-product-btn"><a href="/dashboard/product/add-product">Add Product</a></button>
+    <form action="/dashboard/product-search" method="post" class="table-search-bar">
+      <input
+        type="text"
+        placeholder="Name"
+        name="name"
+        value="<%- content.query.name %>"
+      />
+      <textarea name="description" id="description" placeholder="Description"><%- content.query.description %></textarea>
+      <input type="number" name="price" placeholder="Price" value="<%- content.query.price %>"/>
+      <input type="number" name="quantity" placeholder="Quantity" value="<%- content.query.quantity %>"/>
+      <select name="category_id" id="category">
+        <option value="" selected disabled>Select a category</option>
+        <% content.category.forEach(function (category) { %>
+          <option value="<%- category.id %>" <% if (String(category.id) === String(content.query.category_id)) { %> selected <% } %>>
+            <%- category.category %>
+          </option>
+        <% }) %>
+      </select>
+      <select name="filter" id="filter">
+        <option value="exact-match" <% if (content.query.filter === 'exact-match') { %> selected <% } %>>Exact match</option>
+        <option value="any-match" <% if (content.query.filter === 'any-match') { %> selected <% } %>>Any match</option>
+      </select>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+    <button class="add-product-btn"><a href="/dashboard/product/add-product">Add Product</a></button>
   <% } else { %>
-  <form action="/dashboard/category-search" method="post">
-    <input placeholder="Category" required type="text" name="category" id="category" value="<%-content.query.category %>"/>
-    <select name="filter" id="filter">
-      <option value="exact-match" <% if (content.query.filter === 'exact-match') { %> selected <% } %>>Exact match</option>
-      <option value="any-match" <% if (content.query.filter === 'any-match') { %> selected <% } %>>Any match</option>
-    </select>
-    <button type="submit">Search</button>
-  </form>
-  <button class="add-category-btn"><a href="/dashboard/category/add-category">Add Category</a></button>
+    <form action="/dashboard/category-search" method="post">
+      <input placeholder="Category" required type="text" name="category" id="category" value="<%-content.query.category %>"/>
+      <select name="filter" id="filter">
+        <option value="exact-match" <% if (content.query.filter === 'exact-match') { %> selected <% } %>>Exact match</option>
+        <option value="any-match" <% if (content.query.filter === 'any-match') { %> selected <% } %>>Any match</option>
+      </select>
+      <button type="submit" class="search-btn">Search</button> <!-- New class here -->
+    </form>
+    <button class="add-category-btn"><a href="/dashboard/category/add-category">Add Category</a></button>
   <% } %>
 </div>
+
 
 <table class="main-table">
   <% if (content.name === 'product') { %> <%- include('../partials/showProduct',

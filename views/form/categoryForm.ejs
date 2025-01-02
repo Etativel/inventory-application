@@ -1,4 +1,30 @@
-<form action="/dashboard/category/add-category" method="POST">
-  <input required type="text" placeholder="Category" name="category" />
-  <button type="submit">Add</button>
+<form
+  action="/dashboard/category/add-category"
+  method="POST"
+  class="category-form"
+>
+  <table class="form-table">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input
+            required
+            type="text"
+            placeholder="Category"
+            name="category"
+            class="form-input"
+          />
+        </td>
+        <td>
+          <button type="submit" class="form-button">Add</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </form>

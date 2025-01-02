@@ -1,66 +1,31 @@
+/* Container for the table */
 .main-table {
   background-color: #f3f4ed;
   width: 100%;
-  height: 500px;
+  max-height: 500px;
   overflow-y: auto;
   padding: 12px;
 }
 
-.add-product-btn {
+.add-product-btn,
+.add-category-btn {
   width: 120px;
-}
-
-th {
-  text-align: center;
-  height: 64px;
-
-  position: sticky;
-  top: 0;
-  background-color: white;
-  z-index: 2;
-  /* border: 1px solid #ddd; */
-  /* padding: 8px; */
-}
-
-tr {
-  text-align: center;
-}
-
-.column-name {
-  font-size: 1.5rem;
-  position: sticky;
-}
-
-.column-data {
-  font-size: 1.3rem;
-}
-
-.column-data > td {
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-
-.input-header {
-  background-color: purple;
-}
-
-.action-column {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #ddd;
+  /* table-layout: fixed; */
 }
 
 th,
 td {
   border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
 }
 
 th {
@@ -68,14 +33,44 @@ th {
   position: sticky;
   top: 0;
   z-index: 2;
+  height: 40px;
 }
 
-.id {
-  font-weight: bold;
+tr {
   text-align: center;
+  height: 40px;
 }
 
-/* Search Bar */
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #218838;
+}
+
+.action-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
 .input-header {
   display: flex;
   justify-content: space-between;
@@ -87,18 +82,8 @@ th {
   border-radius: 8px;
 }
 
-/* Styling the search form */
-.table-search-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-}
-
-/* Styling form inputs */
 .table-search-bar input[type="text"],
 .table-search-bar input[type="number"],
-.table-search-bar textarea,
 .table-search-bar select {
   padding: 8px;
   font-size: 14px;
@@ -108,10 +93,6 @@ th {
   transition: border-color 0.3s;
 }
 
-.table-search-bar textarea {
-  resize: none;
-}
-
 .table-search-bar input:focus,
 .table-search-bar textarea:focus,
 .table-search-bar select:focus {
@@ -119,104 +100,77 @@ th {
   outline: none;
 }
 
-/* Styling the search button */
-.table-search-bar button[type="submit"] {
-  padding: 10px 15px;
-  font-size: 14px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.search-btn {
+  background-color: #007bff !important;
 }
 
-.table-search-bar button[type="submit"]:hover {
-  background-color: #0056b3;
+.search-btn:hover {
+  background-color: #0056b3 !important;
 }
 
-/* Styling the add button */
 .input-header button {
   padding: 10px 15px;
   font-size: 14px;
   background-color: #28a745;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.input-header button a {
-  color: inherit;
-  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .input-header button:hover {
   background-color: #218838;
 }
 
-.input-header form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.input-header form input[type="text"],
-.input-header form select {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s;
-  width: 200px;
-}
-
-.input-header form input:focus,
-.input-header form select:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Styling the search button */
-.input-header form button[type="submit"] {
-  padding: 10px 15px;
-  font-size: 14px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+.delete-btn,
+.edit-btn {
+  width: 64px;
+  padding: 6px;
+  border-radius: 6px;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
+  border: none;
 }
 
-.input-header form button[type="submit"]:hover {
+.edit-btn {
+  background-color: #007bff;
+}
+
+.edit-btn:hover {
   background-color: #0056b3;
 }
 
-/* Add Category button styling */
-.input-header button {
-  padding: 10px 15px;
-  font-size: 14px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.delete-btn {
+  background-color: #dc3545;
 }
 
-.input-header button a {
-  color: inherit;
-  text-decoration: none;
+.delete-btn:hover {
+  background-color: #c82333;
 }
 
-.input-header button:hover {
-  background-color: #218838;
-}
+@media (max-width: 768px) {
+  .main-table {
+    padding: 10px;
+  }
 
-.action-column {
-  display: flex;
+  table {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  th,
+  td {
+    padding: 6px;
+  }
+
+  .input-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-input {
+    width: 100%;
+  }
 }

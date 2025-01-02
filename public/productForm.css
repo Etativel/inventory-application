@@ -34,7 +34,6 @@
   font-size: inherit;
 }
 
-/* Textarea specific adjustments */
 .product-form .form-textarea {
   resize: none;
   height: 100%;

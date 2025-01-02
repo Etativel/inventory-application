@@ -1,11 +1,33 @@
-<form action="/update-category/<%- category.id %>" method="POST">
+<form
+  action="/update-category/<%- category.id %>"
+  method="POST"
+  class="category-form"
+>
   <input type="hidden" name="id" value="<%- category.id %>" />
-  <input
-    required
-    type="text"
-    placeholder="Category"
-    name="category"
-    value="<%- category.category %>"
-  />
-  <button type="submit">Update</button>
+
+  <table class="form-table">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input
+            required
+            type="text"
+            placeholder="Category"
+            name="category"
+            value="<%- category.category %>"
+            class="form-input"
+          />
+        </td>
+        <td>
+          <button type="submit" class="form-button">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </form>

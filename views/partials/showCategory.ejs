@@ -8,13 +8,15 @@
   <td class="id"><%- item.id %></td>
   <td><%- item.category %></td>
   <td class="action-column">
-    <form action="/update-category/<%- item.id %>" method="GET">
-      <button type="submit">Edit</button>
-    </form>
+    <div class="action-container">
+      <form action="/update-category/<%- item.id %>" method="GET">
+        <button class="edit-btn" type="submit">Edit</button>
+      </form>
 
-    <form action="/delete-category/<%- item.id %>" method="POST">
-      <button type="submit">Del</button>
-    </form>
+      <form action="/delete-category/<%- item.id %>" method="POST">
+        <button class="delete-btn" type="submit">Del</button>
+      </form>
+    </div>
   </td>
 </tr>
 <% }) %>

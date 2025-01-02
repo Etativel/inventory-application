@@ -2,7 +2,11 @@
 @import url("./mainContent.css");
 @import url("./table.css");
 @import url("./productForm.css");
+@import url("./categoryForm.css");
 
+.search-btn {
+  background-color: #0056b3;
+}
 * {
   margin: 0px;
   padding: 0px;
