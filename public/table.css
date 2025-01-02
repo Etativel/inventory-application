@@ -81,10 +81,12 @@ tr {
   border: 1px solid #ddd;
   border-radius: 8px;
 }
-
+.opt-cat,
+.adsf,
 .table-search-bar input[type="text"],
 .table-search-bar input[type="number"],
-.table-search-bar select {
+.table-search-bar select,
+.table-search-bar textarea {
   padding: 8px;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -93,6 +95,16 @@ tr {
   transition: border-color 0.3s;
 }
 
+/* Fix textarea size */
+.table-search-bar textarea {
+  width: 180px;
+  height: 50px; /* Fixed height */
+  resize: none;
+}
+
+/* Focus styles */
+.opt-cat:focus,
+.adsf:focus,
 .table-search-bar input:focus,
 .table-search-bar textarea:focus,
 .table-search-bar select:focus {
@@ -150,6 +162,12 @@ tr {
   background-color: #c82333;
 }
 
+.cat-update-column {
+  display: flex;
+  justify-content: center;
+}
+
+/* Media Query for smaller screens */
 @media (max-width: 768px) {
   .main-table {
     padding: 10px;

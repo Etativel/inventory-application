@@ -46,9 +46,10 @@ async function deleteCategory(req, res) {
   const category_id = req.params.id;
   const checkCategory = await db.checkCategoryInInventory(category_id);
   if (checkCategory.length >= 1) {
-    res.send(
-      "Cannot delete category because it is associated with existing inventory items."
-    );
+    res.render("categoryDeleteError");
+    // res.send(
+    //   "Cannot delete category because it is associated with existing inventory items."
+    // );
   } else {
     await db.deleteCategory(category_id);
     res.redirect("/dashboard/category");

@@ -1,8 +1,7 @@
 require("dotenv").config({ path: "../.env" });
 const pool = require("./pool");
-
+// TRUNCATE category_table RESTART IDENTITY CASCADE;
 const SQL = `
-  TRUNCATE category_table RESTART IDENTITY CASCADE;
   CREATE TABLE IF NOT EXISTS category_table (
       id SERIAL PRIMARY KEY,
       category VARCHAR NOT NULL);
