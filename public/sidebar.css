@@ -1,0 +1,90 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.title {
+  padding-top: 24px;
+  padding-bottom: 64px;
+  padding-left: 24px;
+  padding-right: 12px;
+  font-size: 1.5rem;
+}
+
+.sidebar {
+  background-color: black;
+  width: 400px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar-content-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  height: fit-content;
+  gap: 12px;
+}
+
+.sidebar-content {
+  /* padding-top: 18px; */
+  /* padding-bottom: 18px; */
+  height: fit-content;
+
+  background-color: black;
+  position: relative; /* This makes it easier to position the <a> */
+}
+
+.sidebar-link:hover {
+  /* background-image: linear-gradient(
+    90deg,
+    hsl(69deg 24% 94%) 0%,
+    hsl(69deg 11% 87%) 0%,
+    hsl(69deg 7% 80%) 0%,
+    hsl(69deg 5% 73%) 0%,
+    hsl(69deg 4% 66%) 0%,
+    hsl(69deg 3% 60%) 0%,
+    hsl(69deg 3% 53%) 1%,
+    hsl(69deg 3% 47%) 2%,
+    hsl(69deg 3% 41%) 3%,
+    hsl(69deg 3% 35%) 5%,
+    hsl(69deg 4% 29%) 7%,
+    hsl(69deg 5% 23%) 10%,
+    hsl(69deg 6% 17%) 14%,
+    hsl(69deg 8% 12%) 20%,
+    hsl(67deg 17% 7%) 29%,
+    hsl(0deg 0% 0%) 48%
+  ); */
+  background-color: #eff0e8;
+  cursor: pointer;
+  color: black;
+  /* border-left: solid white 3px; */
+}
+
+.sidebar-link {
+  display: flex;
+  width: 100%;
+  padding: 18px;
+  height: 52px;
+  padding-left: 32px;
+  padding-right: 12px;
+  align-items: center;
+  font-size: 1.3rem;
+  border-radius: 6px;
+  /* border-left: solid black 3px; */
+}
+
+.svg-icon {
+  width: 32px;
+  height: auto;
+}
+
+.item-title {
+  padding-left: 24px;
+}

@@ -1,0 +1,13 @@
+.main {
+  /* background-color: red; */
+  flex-grow: 1;
+  display: flex;
+  overflow-y: auto;
+  /* justify-content: center; */
+  flex-direction: column;
+  margin: 12px;
+  background-color: #f3f4ed;
+  border-radius: 12px;
+  /* justify-content: center; */
+  /* align-items: center; */
+}

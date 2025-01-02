@@ -1,6 +1,7 @@
 <tr>
   <th>ID</th>
   <th>Category</th>
+  <th>Actions</th>
 </tr>
 <% data.forEach(function (item) { %>
 <tr>
@@ -10,8 +11,7 @@
     <form action="/update-category/<%- item.id %>" method="GET">
       <button type="submit">Update</button>
     </form>
-  </td>
-  <td>
+
     <form action="/delete-category/<%- item.id %>" method="POST">
       <button type="submit">Delete</button>
     </form>

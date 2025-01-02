@@ -5,13 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/table.css" />
   </head>
   <body>
     <div class="container">
       <div class="sidebar">
-        <ul>
-          <li><a href="/dashboard/product">Inventory</a></li>
-          <li><a href="/dashboard/category">Category</a></li>
+        <h2 class="title">Inventory Management</h2>
+        <ul class="sidebar-content-container">
+          <li class="sidebar-content">
+            <a class="sidebar-link" href="/dashboard/product">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="{1.5}"
+                stroke="currentColor"
+                class="size-6 svg-icon"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+                />
+              </svg>
+              <p class="item-title">Inventory</p></a
+            >
+          </li>
+          <li class="sidebar-content">
+            <a class="sidebar-link" href="/dashboard/category">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="{1.5}"
+                stroke="currentColor"
+                class="size-6 svg-icon"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 6h.008v.008H6V6Z"
+                />
+              </svg>
+              <p class="item-title">Category</p></a
+            >
+          </li>
         </ul>
       </div>
       <div class="main">

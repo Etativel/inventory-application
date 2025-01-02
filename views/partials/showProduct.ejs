@@ -1,27 +1,27 @@
-<tr>
-  <th>ID</th>
+<tr class="column-name">
+  <th class="id">ID</th>
   <th>Name</th>
   <th>Description</th>
   <th>Price</th>
   <th>Quantity</th>
   <th>Category</th>
+  <th>Actions</th>
 </tr>
 <% data.forEach(function (item) { %>
-<tr>
-  <td><%- item.id %></td>
+<tr class="column-data">
+  <td class="id"><%- item.id %></td>
   <td><%- item.name %></td>
   <td><%- item.description %></td>
   <td><%- item.price %></td>
   <td><%- item.quantity %></td>
   <td><%- item.category %></td>
-  <td>
+  <td class="action-column">
     <form action="/update-product/<%- item.id %>" method="GET">
-      <button type="submit">Update</button>
+      <button type="submit">Edit</button>
     </form>
-  </td>
-  <td>
+
     <form action="/delete-product/<%- item.id %>" method="POST">
-      <button type="submit">Delete</button>
+      <button type="submit">Del</button>
     </form>
   </td>
 </tr>

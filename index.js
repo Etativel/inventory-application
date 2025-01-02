@@ -11,7 +11,8 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.send("Home");
+  res.redirect("/dashboard/product");
+  // res.send("Home");
 });
 app.use("/", categoryRouter);
 app.use("/", productRouter);
