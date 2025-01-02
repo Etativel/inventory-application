@@ -1,7 +1,7 @@
 @import url("./sidebar.css");
 @import url("./mainContent.css");
 @import url("./table.css");
-/* @import url("./productForm.css"); */
+@import url("./productForm.css");
 
 * {
   margin: 0px;

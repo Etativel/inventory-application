@@ -1,40 +1,73 @@
-<form action="/update-product/<%- item.id %>" method="POST">
+<form action="/update-product/<%- item.id %>" method="POST" class="product-form">
   <input type="hidden" name="id" value="<%- item.id %>" />
-  <input
-    required
-    type="text"
-    placeholder="Name"
-    name="name"
-    value="<%- item.name %>"
-  />
 
-  <textarea name="description" id="description" placeholder="Description"><%-item.description%></textarea
-  >
-  <input
-    required
-    type="number"
-    name="price"
-    placeholder="Price"
-    value="<%- item.price %>"
-  />
-
-  <input
-    required
-    type="number"
-    name="quantity"
-    placeholder="Quantity"
-    value="<%- item.quantity %>"
-  />
-
-  <select name="category_id" id="category">
-    <% data.forEach(function (category) { %>
-      <option value="<%- category.id %>" 
-        <% if (category.id === item.category_id) { %> 
-          selected 
-        <% } %>>
-        <%- category.category %>
-      </option>
-    <% }) %>
-  </select>
-  <button type="submit">Update</button>
+  <table class="form-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input
+            required
+            type="text"
+            placeholder="Name"
+            name="name"
+            value="<%- item.name %>"
+            class="form-input"
+          />
+        </td>
+        <td>
+          <textarea
+            name="description"
+            id="description"
+            placeholder="Description"
+            class="form-textarea"
+          ><%- item.description %></textarea>
+        </td>
+        <td>
+          <input
+            required
+            type="number"
+            name="price"
+            placeholder="Price"
+            value="<%- item.price %>"
+            class="form-input"
+          />
+        </td>
+        <td>
+          <input
+            required
+            type="number"
+            name="quantity"
+            placeholder="Quantity"
+            value="<%- item.quantity %>"
+            class="form-input"
+          />
+        </td>
+        <td>
+          <select name="category_id" id="category" class="form-select">
+            <% data.forEach(function (category) { %>
+              <option
+                value="<%- category.id %>"
+                <% if (category.id === item.category_id) { %> selected <% } %>
+              >
+                <%- category.category %>
+              </option>
+            <% }) %>
+          </select>
+        </td>
+        <td>
+          <button type="submit" class="form-button">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </form>

@@ -6,6 +6,10 @@
   padding: 12px;
 }
 
+.add-product-btn {
+  width: 120px;
+}
+
 th {
   text-align: center;
   height: 64px;
@@ -42,26 +46,28 @@ tr {
 
 .action-column {
   display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 table {
-  width: 100%; /* Optional: Full-width table */
-  border-collapse: collapse; /* Removes gaps between borders */
-  border: 1px solid #ddd; /* Adds a border around the table */
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
 }
 
 th,
 td {
-  border: 1px solid #ddd; /* Adds a border to each cell */
-  padding: 8px; /* Adds padding for readability */
-  text-align: left; /* Aligns text to the left */
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
 th {
-  background-color: #f4f4f4; /* Adds background color to headers */
-  position: sticky; /* Makes headers sticky */
-  top: 0; /* Sticky headers stick to the top */
-  z-index: 2; /* Ensures headers stay on top */
+  background-color: #f4f4f4;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .id {
@@ -70,23 +76,22 @@ th {
 }
 
 /* Search Bar */
-/* Styling the container for the input header */
 .input-header {
   display: flex;
-  justify-content: space-between; /* Align search form and add button to opposite ends */
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #f9f9f9; /* Light background for contrast */
-  border: 1px solid #ddd; /* Subtle border */
-  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 /* Styling the search form */
 .table-search-bar {
   display: flex;
-  flex-wrap: wrap; /* Ensures inputs wrap on smaller screens */
-  gap: 10px; /* Spacing between inputs */
+  flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
 }
 
@@ -99,18 +104,18 @@ th {
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 180px; /* Set consistent width */
+  width: 180px;
   transition: border-color 0.3s;
 }
 
 .table-search-bar textarea {
-  resize: none; /* Prevent resizing */
+  resize: none;
 }
 
 .table-search-bar input:focus,
 .table-search-bar textarea:focus,
 .table-search-bar select:focus {
-  border-color: #007bff; /* Highlight border on focus */
+  border-color: #007bff;
   outline: none;
 }
 
@@ -143,15 +148,14 @@ th {
 }
 
 .input-header button a {
-  color: inherit; /* Matches button color */
-  text-decoration: none; /* Removes underline */
+  color: inherit;
+  text-decoration: none;
 }
 
 .input-header button:hover {
   background-color: #218838;
 }
 
-/* Styling the form for category search */
 .input-header form {
   display: flex;
   flex-wrap: wrap;
@@ -167,7 +171,7 @@ th {
   border: 1px solid #ccc;
   border-radius: 4px;
   transition: border-color 0.3s;
-  width: 200px; /* Slightly wider for clarity */
+  width: 200px;
 }
 
 .input-header form input:focus,
@@ -211,4 +215,8 @@ th {
 
 .input-header button:hover {
   background-color: #218838;
+}
+
+.action-column {
+  display: flex;
 }
